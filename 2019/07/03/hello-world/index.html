@@ -3,6 +3,10 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
+    <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
+    <script src="/lib/gitalk/gitalk.min.js"></script>
+  
+  
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
@@ -320,25 +324,22 @@ var _hmt = _hmt || [];
   
 
   
-    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: 'f6a69d9e1aa1c3fd694d',
-  	clientSecret: '165850e22ce20ad7e90f01984d3ae16c36f454a0',
-  	repo: 'joe-zxh.github.io',
-  	owner: 'joe-zxh',
-  	admin: [''],
-  	id: 'Wed Jul 03 2019 14:50:37 GMT+0800',
-  	distractionFreeMode: ''
-})
-gitalk.render('gitalk-container') 
-}
-</script>
+    <div class="gitalk">
+    <div id="gitalk-container"></div>
+    <script type="text/javascript">
+        const gitalk = new Gitalk({
+            clientID: '',
+            clientSecret: '',
+            repo: 'joe-zxh.github.io',
+            owner: 'joe-zxh',
+            admin: ['joe-zxh'],
+            id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+            distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+ 
+        gitalk.render('gitalk-container')
+    </script>
+</div>
     
   
 
