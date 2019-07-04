@@ -10,20 +10,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Efficient Byzantine Fault-Tolerance(MinBFT和MinZyzzyva) | Joe的博客</title>
+  <title>论文阅读：Efficient Byzantine Fault-Tolerance(MinBFT和MinZyzzyva) | Joe的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="摘要：介绍了2种拜占庭共识算法MinBFT和MinZyzzyva。它们有这些特点：1、仅需2f+1个节点。2、可信服务简单易得。3、通讯步数是最短的。">
 <meta name="keywords" content="拜占庭">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Efficient Byzantine Fault-Tolerance(MinBFT和MinZyzzyva)">
+<meta property="og:title" content="论文阅读：Efficient Byzantine Fault-Tolerance(MinBFT和MinZyzzyva)">
 <meta property="og:url" content="http://yoursite.com/2019/07/04/Efficient-Byzantine-Fault-Tolerance-MinBFT和MinZyzzyva/index.html">
 <meta property="og:site_name" content="Joe的博客">
 <meta property="og:description" content="摘要：介绍了2种拜占庭共识算法MinBFT和MinZyzzyva。它们有这些特点：1、仅需2f+1个节点。2、可信服务简单易得。3、通讯步数是最短的。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-04T06:22:06.996Z">
+<meta property="og:image" content="http://yoursite.com/2019/07/04/Efficient-Byzantine-Fault-Tolerance-MinBFT和MinZyzzyva/alipay.png">
+<meta property="og:updated_time" content="2019-07-04T07:14:19.446Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Efficient Byzantine Fault-Tolerance(MinBFT和MinZyzzyva)">
+<meta name="twitter:title" content="论文阅读：Efficient Byzantine Fault-Tolerance(MinBFT和MinZyzzyva)">
 <meta name="twitter:description" content="摘要：介绍了2种拜占庭共识算法MinBFT和MinZyzzyva。它们有这些特点：1、仅需2f+1个节点。2、可信服务简单易得。3、通讯步数是最短的。">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/04/Efficient-Byzantine-Fault-Tolerance-MinBFT和MinZyzzyva/alipay.png">
   
     <link rel="alternative" href="/atom.xml" title="Joe的博客" type="application/atom+xml">
   
@@ -62,13 +64,13 @@ var _hmt = _hmt || [];
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/img/header.jpg" class="js-avatar">
+			<img src="/imgs/header.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">0x7c00</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">个性签名：苟到一无所有</p>
+		<p class="header-subtitle">个性签名：我是苟不出论文的科研垃圾</p>
 		
 
 		<nav class="header-menu">
@@ -120,13 +122,13 @@ var _hmt = _hmt || [];
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/img/header.jpg" class="js-avatar">
+				<img src="/imgs/header.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">0x7c00</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>个性签名：苟到一无所有<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>个性签名：我是苟不出论文的科研垃圾<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -180,7 +182,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      Efficient Byzantine Fault-Tolerance(MinBFT和MinZyzzyva)
+      论文阅读：Efficient Byzantine Fault-Tolerance(MinBFT和MinZyzzyva)
     </h1>
   
 
@@ -196,7 +198,7 @@ var _hmt = _hmt || [];
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.2k字</span>
+        <span class="post-count">1.5k字</span>
       </span>
     </span>
 
@@ -205,7 +207,7 @@ var _hmt = _hmt || [];
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  预计阅读时间: </span>
-        <span class="post-count">4分</span>
+        <span class="post-count">5分</span>
       </span>
     </span>
 </div>
@@ -227,7 +229,7 @@ var _hmt = _hmt || [];
 <p>这个id是 唯一的、单调增的、顺序的，也就是说，USIG满足这3个性质：<br>1) 同一个id不会被分配给2个不同的消息<br>2) 后面分配的id比前面分配的值大<br>3) sequential的意思不是和2一样吗???</p>
 <p>服务的接口：</p>
 <ul>
-<li>createUI(m): 返回一个USIG证书，这个证书包含一个唯一的标识符UI，用来验证消息没有被篡改。UI本质上是一个单调递增的计数器的值。（证书应该还包含其他东西）</li>
+<li>createUI(m): 返回一个USIG证书，这个证书包含一个唯一的标识符UI，用来验证消息没有被篡改。UI本质上是一个单调递增的计数器的值。（UI应该是一个对象，里面有很多个属性，counter只是它的其中一个属性）</li>
 <li>verifyUI(PK, UI, m)：验证UI对于m是有效的。（PK估计是 公钥之类的东西）</li>
 </ul>
 <h2 id="3-系统模型和性质"><a href="#3-系统模型和性质" class="headerlink" title="3 系统模型和性质"></a>3 系统模型和性质</h2><p>1)    系统节点个数：n = 2f+1<br>2)    每个节点都有USIG服务。节点可以是拜占庭的，但USIG服务一直都是正常的。<br>3)    假设没有处理延迟 或 通讯延迟<br>4)    采用了状态机的方法。保证了  </p>
@@ -239,11 +241,15 @@ var _hmt = _hmt || [];
 <p>正常情况下，接受客户请求并执行的步骤：<br>1)    客户发送请求给所有节点。<br>2)    主节点 为这个请求设置一个 序号(sequence number)，并通过PREPARE消息把请求发给别的节点。<br>3)    接收到来自主节点的PREPARE消息后，每个节点广播一条COMMIT消息给别的节点。<br>4)    当一个节点接受（accept）一个请求之后，它就会执行请求里面的命令，并把结果回复给客户。<br>5)    客户接收到f+1个相同回复后，完整操作。</p>
 <h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><p>请求格式&lt;REQUEST, c, seq, op&gt;σc<br>seq是  请求的标识号，用户保证一个请求只执行一次：<br>1) 每个节点维护一个V<sub>req</sub>的向量，V<sub>req</sub>=(seq1, seq2, seq3…, seqn)。seqi表示，对于客户i，该节点最后执行的请求的序列号。<br>2) 如果接收到的seq比V<sub>req</sub>里面对应的小，那么直接丢弃掉。(然后把在缓存中的结果 直接回复给客户)<br>σc是客户对请求的签名。</p>
 <p>发送完请求之后，客户端等待f+1条回复&lt;REPLY, s, seq, res&gt;<br>s表示节点的id</p>
-<h3 id="服务器节点：正常操作的情况（处理用户请求）"><a href="#服务器节点：正常操作的情况（处理用户请求）" class="headerlink" title="服务器节点：正常操作的情况（处理用户请求）"></a>服务器节点：正常操作的情况（处理用户请求）</h3><p>当主节点接收到一个客户请求时，它会广播一条PREPARE消息给别的节点。<br>主节点的主要任务是 对每个请求分配一个序号（sequence number）,这个序号是USIG服务给出的UI中的计数器的值。（ps. 当没有发生view的变化时，这个序号是sequential的(单调递增的???)）</p>
+<h3 id="服务器节点：正常操作的情况（处理用户请求）"><a href="#服务器节点：正常操作的情况（处理用户请求）" class="headerlink" title="服务器节点：正常操作的情况（处理用户请求）"></a>服务器节点：正常操作的情况（处理用户请求）</h3><p><img src="alipay.png" alt></p>
+<p>当主节点接收到一个客户请求时，它会广播一条PREPARE消息给别的节点。<br>主节点的主要任务是 对每个请求分配一个序号（sequence number）,这个序号是USIG服务给出的UI中的计数器的值（counter value: UI.cv）。（ps. 当没有发生view的变化时，这个序号是sequential的(单调递增的)）</p>
 <p>PREPARE消息的格式：&lt;PREPARE, v, si, m, UI<sub>i</sub>&gt;<br>si是主节点的id，m是客户的请求消息，UI<sub>i</sub>是主节点为PREPARE这条消息生成的证书。</p>
-<p>当一个从节点接收到主节点的PREPARE消息后，通过verifyUI来验证UI<sub>i</sub>的正确性，没有问题的话，就会广播一条COMMIT消息给别的节点。<br>COMMIT消息的格式：&lt;COMMIT, v, sj, si, m, UI<sub>i</sub>, UI<sub>j</sub>&gt;<br>UI<sub>j</sub>是从节点对COMMIT消息生成的证书。</p>
+<p>当一个从节点接收到主节点的PREPARE消息后，通过verifyUI来验证UI<sub>i</sub>的正确性，没有问题的话，那么检查：<br>1) v是当前的view的序号，且发送者确实是当前view的主节点(view % n)<br>2) 消息m中的客户端的签名是正确的。<br>3) 从节点已经accept了请求m’，其中counter value cv’=cv-1。也就是说，在比UI.cv小的对应的请求都已经accept并执行完了。<br>就会广播一条COMMIT消息给别的节点。  </p>
+<p>COMMIT消息的格式：&lt;COMMIT, v, sj, si, m, UI<sub>i</sub>, UI<sub>j</sub>&gt;<br>UI<sub>j</sub>是从节点对COMMIT消息生成的证书。</p>
 <p>如果一个从节点没有接收到主节点的PREPARE消息，而是接收到一个有效的COMMIT消息，那么它也广播对应的COMMIT消息。（因为COMMIT消息里面，包含主节点的证书UI<sub>i</sub>，因此也能证明对应的PREPARE消息是没有问题的）</p>
 <p>某个节点accept一个请求m的条件（即该请求已达成共识）：该节点接收到f+1个有效的对于m的COMMIT消息。</p>
+<p>对PREPARE消息进行检查的第3)点中，消息排序机制使用了FIFO的思想，同时这种思想也在别的消息中应用到：<br>一个正确的节点不会在 处理完消息&lt;…, si, …, UI<sub>i</sub>‘, …&gt;之前，去处理消息&lt;…, si, …, UI<sub>i</sub>, …&gt;。其中UI<sub>i</sub>‘.cv&lt;UI<sub>i</sub>.cv</p>
+<p>为了保证这个顺序的正确性，每个节点都会维护一个向量V<sub>acc</sub>，里面每一维记录的是对应的其他节点最后处理的那个消息的counter value的值（包括PREPARE, COMMIT, CHECKPOINT, VIEW-CHANGE）。例如Vacc=(cv1, cv2, cv3…, cvn)，其中cvi是当前节点接收到i发送的最后一条消息的UI<sub>i</sub>.cv值。</p>
 
       
 
@@ -261,13 +267,13 @@ var _hmt = _hmt || [];
                   <div class="reward-box">
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="/img/alipay.png">
+                      <img class="reward-img" src="/imgs/alipay.png">
                       <span class="reward-type">支付宝</span>
                     </div>
                     
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="/img/wechatpay.jpg">
+                      <img class="reward-img" src="/imgs/wechatpay.jpg">
                       <span class="reward-type">微信</span>
                     </div>
                     
