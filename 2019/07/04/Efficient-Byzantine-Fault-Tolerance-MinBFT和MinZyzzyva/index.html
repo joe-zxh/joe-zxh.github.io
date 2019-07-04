@@ -10,21 +10,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>论文阅读：Efficient Byzantine Fault-Tolerance(MinBFT和MinZyzzyva) | Joe的博客</title>
+  <title>论文阅读：Efficient Byzantine Fault-Tolerance(1.MinBFT算法) | Joe的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要：介绍了2种拜占庭共识算法MinBFT和MinZyzzyva。它们有这些特点：1、仅需2f+1个节点。2、可信服务简单易得。3、通讯步数是最短的。">
+  <meta name="description" content="摘要：论文介绍了2种拜占庭共识算法MinBFT和MinZyzzyva。它们有这些特点：1、仅需2f+1个节点。2、可信服务简单易得。3、通讯步数是最短的。">
 <meta name="keywords" content="拜占庭">
 <meta property="og:type" content="article">
-<meta property="og:title" content="论文阅读：Efficient Byzantine Fault-Tolerance(MinBFT和MinZyzzyva)">
+<meta property="og:title" content="论文阅读：Efficient Byzantine Fault-Tolerance(1.MinBFT算法)">
 <meta property="og:url" content="http://yoursite.com/2019/07/04/Efficient-Byzantine-Fault-Tolerance-MinBFT和MinZyzzyva/index.html">
 <meta property="og:site_name" content="Joe的博客">
-<meta property="og:description" content="摘要：介绍了2种拜占庭共识算法MinBFT和MinZyzzyva。它们有这些特点：1、仅需2f+1个节点。2、可信服务简单易得。3、通讯步数是最短的。">
+<meta property="og:description" content="摘要：论文介绍了2种拜占庭共识算法MinBFT和MinZyzzyva。它们有这些特点：1、仅需2f+1个节点。2、可信服务简单易得。3、通讯步数是最短的。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/imgs/Efficient-Byzantine-Fault-Tolerance-MinBFT和MinZyzzyva/MinBFTNormal.png">
-<meta property="og:updated_time" content="2019-07-04T07:38:22.323Z">
+<meta property="og:image" content="http://yoursite.com/imgs/Efficient-Byzantine-Fault-Tolerance-MinBFT和MinZyzzyva/MinBFTViewChange.png">
+<meta property="og:updated_time" content="2019-07-04T11:04:39.324Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="论文阅读：Efficient Byzantine Fault-Tolerance(MinBFT和MinZyzzyva)">
-<meta name="twitter:description" content="摘要：介绍了2种拜占庭共识算法MinBFT和MinZyzzyva。它们有这些特点：1、仅需2f+1个节点。2、可信服务简单易得。3、通讯步数是最短的。">
+<meta name="twitter:title" content="论文阅读：Efficient Byzantine Fault-Tolerance(1.MinBFT算法)">
+<meta name="twitter:description" content="摘要：论文介绍了2种拜占庭共识算法MinBFT和MinZyzzyva。它们有这些特点：1、仅需2f+1个节点。2、可信服务简单易得。3、通讯步数是最短的。">
 <meta name="twitter:image" content="http://yoursite.com/imgs/Efficient-Byzantine-Fault-Tolerance-MinBFT和MinZyzzyva/MinBFTNormal.png">
   
     <link rel="alternative" href="/atom.xml" title="Joe的博客" type="application/atom+xml">
@@ -182,7 +183,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      论文阅读：Efficient Byzantine Fault-Tolerance(MinBFT和MinZyzzyva)
+      论文阅读：Efficient Byzantine Fault-Tolerance(1.MinBFT算法)
     </h1>
   
 
@@ -198,7 +199,7 @@ var _hmt = _hmt || [];
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.5k字</span>
+        <span class="post-count">1.9k字</span>
       </span>
     </span>
 
@@ -207,7 +208,7 @@ var _hmt = _hmt || [];
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  预计阅读时间: </span>
-        <span class="post-count">5分</span>
+        <span class="post-count">6分</span>
       </span>
     </span>
 </div>
@@ -219,7 +220,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要：介绍了2种拜占庭共识算法MinBFT和MinZyzzyva。它们有这些特点：<br>1、仅需2f+1个节点。2、可信服务简单易得。3、通讯步数是最短的。</p>
+        <p>摘要：论文介绍了2种拜占庭共识算法MinBFT和MinZyzzyva。它们有这些特点：<br>1、仅需2f+1个节点。2、可信服务简单易得。3、通讯步数是最短的。</p>
 <a id="more"></a>
 
 <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h2><p>2个2f+1的算法使用的可信服务元件：<br>TTCB(Truseted Timely Computing Base)：一个分布式的 篡改证明构件，提供了一个排序服务(ordering service)，用于实现原子广播协议(atomic multicast protocol)。[15]</p>
@@ -248,10 +249,22 @@ var _hmt = _hmt || [];
 <p>当一个从节点接收到主节点的PREPARE消息后，通过verifyUI来验证UI<sub>i</sub>的正确性，没有问题的话，那么检查：<br>1) v是当前的view的序号，且发送者确实是当前view的主节点(view % n)<br>2) 消息m中的客户端的签名是正确的。<br>3) 从节点已经accept了请求m’，其中counter value cv’=cv-1。也就是说，在比UI.cv小的对应的请求都已经accept并执行完了。<br>就会广播一条COMMIT消息给别的节点。  </p>
 <p>COMMIT消息的格式：&lt;COMMIT, v, sj, si, m, UI<sub>i</sub>, UI<sub>j</sub>&gt;<br>UI<sub>j</sub>是从节点对COMMIT消息生成的证书。</p>
 <p>如果一个从节点没有接收到主节点的PREPARE消息，而是接收到一个有效的COMMIT消息，那么它也广播对应的COMMIT消息。（因为COMMIT消息里面，包含主节点的证书UI<sub>i</sub>，因此也能证明对应的PREPARE消息是没有问题的）</p>
-<p>某个节点accept一个请求m的条件（即该请求已达成共识）：该节点接收到f+1个有效的对于m的COMMIT消息。</p>
+<blockquote>
+<p>某个节点<code>accept</code>一个请求m的条件（即该请求已达成共识）：该节点接收到f+1个有效的对于m的COMMIT消息。</p>
+</blockquote>
 <p>对PREPARE消息进行检查的第3)点中，消息排序机制使用了FIFO的思想，同时这种思想也在别的消息中应用到：<br>一个正确的节点不会在 处理完消息&lt;…, si, …, UI<sub>i</sub>‘, …&gt;之前，去处理消息&lt;…, si, …, UI<sub>i</sub>, …&gt;。其中UI<sub>i</sub>‘.cv&lt;UI<sub>i</sub>.cv</p>
 <p>为了保证这个顺序的正确性，每个节点都会维护一个向量V<sub>acc</sub>，里面每一维记录的是对应的其他节点最后处理的那个消息的counter value的值（包括PREPARE, COMMIT, CHECKPOINT, VIEW-CHANGE）。例如Vacc=(cv1, cv2, cv3…, cvn)，其中cvi是当前节点接收到i发送的最后一条消息的UI<sub>i</sub>.cv值。</p>
-<h3 id="服务器节点：view-change的情况"><a href="#服务器节点：view-change的情况" class="headerlink" title="服务器节点：view change的情况"></a>服务器节点：view change的情况</h3>
+<h3 id="服务器节点：garbage-collection和-检查点"><a href="#服务器节点：garbage-collection和-检查点" class="headerlink" title="服务器节点：garbage collection和 检查点"></a>服务器节点：garbage collection和 检查点</h3><p>节点发送过的消息都会存在一个消息日志中，以防这些消息需要被重新传送。MinBFT使用基于检查点的GC(garbage collection)机制来从消息日志中丢弃一些消息。</p>
+<p>节点每隔一段时间都会</p>
+<h3 id="服务器节点：view-change的情况"><a href="#服务器节点：view-change的情况" class="headerlink" title="服务器节点：view change的情况"></a>服务器节点：view change的情况</h3><p>在普通的日志复制的情况下，主节点给接收到的请求分配序号（通过CreateUI），这样能够保证一个拜占庭主节点不能重复地分配相同序号的值给不同的请求，或者 任意地分配序号值。</p>
+<p>然而，一个拜占庭主节点在接收到请求时，还是能够通过不发送PREPARE消息来阻止系统的继续运行。</p>
+<p>因此，用户的请求是发送给所有的节点的，如果一个从节点接收到用户的请求，那么它会开启一个T<sub>exec</sub>的时钟：当在超时之前，如果该请求被接受了(accept)，那么重置时钟；否则，主节点可能是拜占庭节点，那么发起一个view change。</p>
+<img src="/imgs/Efficient-Byzantine-Fault-Tolerance-MinBFT和MinZyzzyva/MinBFTViewChange.png" height="280" width="430">
+
+<p>当某个节点si的T<sub>exec</sub>超时了，si会发送一条&lt;REQ-VIEW-CHANGE, si, v, v’&gt;的消息给所有的节点。其中，v是当前的视图号，v’=v+1是新的视图号。</p>
+<p>当一个节点si接收到f+1条REQ-VIEW-CHANGE消息的时候，它转移到视图v+1中，并且广播&lt;VIEW-CHANGE, si, v’, C<sub>latest</sub>, O, UI<sub>i</sub>&gt;,C<sub>latest</sub>是最新的</p>
+<p>这里留一个疑问</p>
+
       
 
       
