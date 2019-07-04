@@ -10,17 +10,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | Hexo</title>
+  <title>Archives: 2019 | Joe的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Joe的博客">
 <meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Joe的博客">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Joe的博客">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Joe的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -60,8 +60,10 @@ var _hmt = _hmt || [];
 			<img src="/img/header.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Joe Joe</a></h1>
+		  <h1 class="header-author"><a href="/">0x7c00</a></h1>
 		</hgroup>
+		
+		<p class="header-subtitle">个性签名：苟到一无所有</p>
 		
 
 		<nav class="header-menu">
@@ -70,6 +72,10 @@ var _hmt = _hmt || [];
 				<li><a href="/">主页</a></li>
 	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/拜占庭/">拜占庭共识算法</a></li>
+	        
+				<li><a href="/categories/Hexo系列">Hexos</a></li>
 	        
 			</ul>
 		</nav>
@@ -112,10 +118,16 @@ var _hmt = _hmt || [];
 				<img src="/img/header.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Joe Joe</h1>
+			  <h1 class="header-author js-header-author">0x7c00</h1>
 			</hgroup>
 			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>个性签名：苟到一无所有<i class="icon icon-quo-right"></i></p>
 			
+			
+			
+				
+			
+				
 			
 				
 			
@@ -132,12 +144,16 @@ var _hmt = _hmt || [];
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/拜占庭/">拜占庭共识算法</a></li>
+		        
+					<li style="width: 25%"><a href="/categories/Hexo系列">Hexos</a></li>
 		        
 				</ul>
 			</nav>
@@ -169,19 +185,30 @@ var _hmt = _hmt || [];
   <div class="archive-article-inner">
     <header class="archive-article-header">
       	<div class="article-meta">
-	      	<a href="/2019/07/03/hello-world/" class="archive-article-date">
-  	<time datetime="2019-07-03T06:50:37.909Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-03</time>
+	      	<a href="/2019/07/04/Efficient-Byzantine-Fault-Tolerance-MinBFT和MinZyzzyva/" class="archive-article-date">
+  	<time datetime="2019-07-04T05:31:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
 </a>
         </div>
     	 
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/03/hello-world/">Hello World</a>
+      <a class="archive-article-title" href="/2019/07/04/Efficient-Byzantine-Fault-Tolerance-MinBFT和MinZyzzyva/">Efficient Byzantine Fault-Tolerance(MinBFT和MinZyzzyva)</a>
     </h1>
   
 
         <div class="article-info info-on-right">
           
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">拜占庭</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
           
 
         </div>
@@ -204,7 +231,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Joe Joe
+    		&copy; 2019 0x7c00
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -285,6 +312,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">拜占庭</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拜占庭共识算法</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
