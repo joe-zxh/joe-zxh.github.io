@@ -22,7 +22,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/imgs/Efficient-Byzantine-Fault-Tolerance-MinBFT和MinZyzzyva/MinBFTNormal.png">
 <meta property="og:image" content="http://yoursite.com/imgs/Efficient-Byzantine-Fault-Tolerance-MinBFT和MinZyzzyva/MinBFTViewChange.png">
-<meta property="og:updated_time" content="2019-07-05T02:05:54.973Z">
+<meta property="og:updated_time" content="2019-07-05T07:21:15.861Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文阅读：Efficient Byzantine Fault-Tolerance(1.MinBFT算法)">
 <meta name="twitter:description" content="摘要：论文介绍了2种拜占庭共识算法MinBFT和MinZyzzyva。它们有这些特点：1、仅需2f+1个节点。2、可信服务简单易得。3、通讯步数是最短的。 本篇博客先对MinBFT算法进行介绍。">
@@ -71,7 +71,7 @@ var _hmt = _hmt || [];
 		  <h1 class="header-author"><a href="/">0x7c00</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">个性签名：我是苟不出论文的科研垃圾</p>
+		<p class="header-subtitle">个性签名：要有耐心</p>
 		
 
 		<nav class="header-menu">
@@ -129,7 +129,7 @@ var _hmt = _hmt || [];
 			  <h1 class="header-author js-header-author">0x7c00</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>个性签名：我是苟不出论文的科研垃圾<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>个性签名：要有耐心<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -321,7 +321,8 @@ var _hmt = _hmt || [];
 <p>ps. 当一个节点发起VIEW-CHANGE消息时，它会开启一个Tvc的计时器。如果超时没有进入新视图，那么对视图v’’=v+2会发起另外一个view change。</p>
 <p>MinBFT的算法的过程就到这里，非常复杂，特别是view-change里面的内容。<br>下一篇，我们将会介绍MinBFT的正确性证明。</p>
 <p><br> <br> <br> <br> <br> <br> <br>  </p>
-<h4 id="这里留一个疑问：UI到底有什么用？？？P5左边下面"><a href="#这里留一个疑问：UI到底有什么用？？？P5左边下面" class="headerlink" title="这里留一个疑问：UI到底有什么用？？？P5左边下面"></a>这里留一个疑问：UI到底有什么用？？？P5左边下面</h4><blockquote>
+<h4 id="疑问：UI到底有什么用？"><a href="#疑问：UI到底有什么用？" class="headerlink" title="疑问：UI到底有什么用？"></a>疑问：UI到底有什么用？</h4><p>UI限制了没有2条消息有相同的标识符 P5左边下面</p>
+<blockquote>
 <p>no 2 messages have the same identifier</p>
 </blockquote>
 <p>BRaft不需要这个条件，因为如果有拜占庭leader发送了2条拥有相同日志项序号的日志的话，只有1个日志项能够被达成共识(因为需要quroum条选票)<br>但是我们用了quroum就不能变成2f+1<br>如果我们把quorum直接改成f+1,是不行的。<br>例如3个节点，1个拜占庭。1，2，3号节点。1号节点是leader，2号(b节点)没添加，却commit，3号没添加。那么1号节点认为已经commit，但3号节点可以成为下一任leader。因此不行。</p>
