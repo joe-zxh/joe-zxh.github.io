@@ -10,15 +10,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | Joe的博客</title>
+  <title>论文阅读：CheapBFT: Resource-efficient Byzantine Fault Tolerance | Joe的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Joe的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="摘要：CheapBFT只需要f+1个节点。它分成2种情况：正确的情况时，f+1个节点同意客户的请求，并执行这个请求。有错误的情况时，触发一个转换协议，激活f个被动的节点（此时系统变为2f+1个节点），并使得没有错误的节点恢复到一致的状态。">
+<meta name="keywords" content="拜占庭">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读：CheapBFT: Resource-efficient Byzantine Fault Tolerance">
+<meta property="og:url" content="http://yoursite.com/2019/07/18/论文阅读：CheapBFT-Resource-efficient-Byzantine-Fault-Tolerance/index.html">
 <meta property="og:site_name" content="Joe的博客">
+<meta property="og:description" content="摘要：CheapBFT只需要f+1个节点。它分成2种情况：正确的情况时，f+1个节点同意客户的请求，并执行这个请求。有错误的情况时，触发一个转换协议，激活f个被动的节点（此时系统变为2f+1个节点），并使得没有错误的节点恢复到一致的状态。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/imgs/CheapBFT/Figure3.png">
+<meta property="og:image" content="http://yoursite.com/imgs/CheapBFT/Figure4.png">
+<meta property="og:image" content="http://yoursite.com/imgs/CheapBFT/Figure5.png">
+<meta property="og:image" content="http://yoursite.com/imgs/CheapBFT/Figure6.png">
+<meta property="og:image" content="http://yoursite.com/imgs/CheapBFT/Figure5.png">
+<meta property="og:updated_time" content="2019-07-18T09:33:09.388Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Joe的博客">
+<meta name="twitter:title" content="论文阅读：CheapBFT: Resource-efficient Byzantine Fault Tolerance">
+<meta name="twitter:description" content="摘要：CheapBFT只需要f+1个节点。它分成2种情况：正确的情况时，f+1个节点同意客户的请求，并执行这个请求。有错误的情况时，触发一个转换协议，激活f个被动的节点（此时系统变为2f+1个节点），并使得没有错误的节点恢复到一致的状态。">
+<meta name="twitter:image" content="http://yoursite.com/imgs/CheapBFT/Figure3.png">
   
     <link rel="alternative" href="/atom.xml" title="Joe的博客" type="application/atom+xml">
   
@@ -168,44 +179,147 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-论文阅读：CheapBFT-Resource-efficient-Byzantine-Fault-Tolerance" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/13/hello-world/" class="archive-article-date">
-  	<time datetime="2017-06-13T05:26:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/13/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      论文阅读：CheapBFT: Resource-efficient Byzantine Fault Tolerance
     </h1>
   
 
-        <div class="article-info info-on-right">
+        
+        <a href="/2019/07/18/论文阅读：CheapBFT-Resource-efficient-Byzantine-Fault-Tolerance/" class="archive-article-date">
+  	<time datetime="2019-07-18T08:15:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-18</time>
+</a>
+        
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1k字</span>
+      </span>
+    </span>
+
+    <!span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  预计阅读时间: </span>
+        <span class="post-count">3分</span>
+      </span>
+    </span>
+</div>
           
+        <!-- 添加完成 -->
+        
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要：CheapBFT只需要f+1个节点。它分成2种情况：<br>正确的情况时，f+1个节点同意客户的请求，并执行这个请求。<br>有错误的情况时，触发一个转换协议，激活f个被动的节点（此时系统变为2f+1个节点），并使得没有错误的节点恢复到一致的状态。</p>
+<a id="more"></a>
+
+<p>CheapBFT依赖于FPGA可信子系统来进行消息的认证。</p>
+<p>论文地址：<a href="https://dl.acm.org/citation.cfm?id=2168866" target="_blank" rel="noopener">https://dl.acm.org/citation.cfm?id=2168866</a></p>
+<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h2><p>CheapBFT依赖于一个名为CASH的，基于FPGA的可信子系统。</p>
+<p>CheapBFT的共识协议包括三个子协议：<br>正常情况的CheapTiny协议、转换协议CheapSwitch，以及 fall-back协议MinBFT。</p>
+<blockquote>
+<p>MinBFT就是那个在Efficient Byzantine Fault-Tolerance论文里面的MinBFT算法。</p>
+</blockquote>
+<p>正常情况下，使用CheapTiny协议，系统可以支持f+1个节点。<br>当出现问题时，使用转换协议CheapSwitch，系统变为2f+1个节点，然后使用MinBFT来继续运行。</p>
+<h2 id="2-preventing-equivocation"><a href="#2-preventing-equivocation" class="headerlink" title="2 preventing equivocation"></a>2 preventing equivocation</h2><p>防止含糊其词</p>
+<p>2.1 通过<code>可信子系统</code>来实现从3f+1到2f+1的转变：</p>
+<blockquote>
+<p>防止同一条消息被赋予了多个counter值<br>防止同一个counter值赋给了多条消息</p>
+</blockquote>
+<p>2.2 CASH子系统</p>
+<p>提供2个接口：</p>
+<ol>
+<li><p>为消息分配一个counter：createMC(m)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">upon call createMC(m) do</span><br><span class="line">    c:=c+1;</span><br><span class="line">    a:=MAC(K, S||c||m); // K是secret Key, c是counter, m是消息</span><br><span class="line">    mc:=(S, c, a); // S是当前节点的id号</span><br><span class="line">    return mc;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>验证消息对应的counter(别的节点分配的counter值)是否正确：checkMC(m)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">upon call checkMC(mc, m) do</span><br><span class="line">    (s, cs, a):=mc; // 把mc拆分成不同的元素</span><br><span class="line">    // s是 要认证的节点的id，cs是节点s对应的该消息counter值，m是消息</span><br><span class="line">    if MAC(K, s||cs||m)=a 且 isNext(s, cs) do</span><br><span class="line">        return TRUE; //每个节点记录别的节点的counter值，用isNext来检查counter值是否是连续的</span><br><span class="line">    else</span><br><span class="line">        return FALSE;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>对应的消息m，可以是消息的哈希值（把大的消息变成更短的值，使得速度更快一些）</p>
+<blockquote>
+<p>这里留一个问题：论文里面说K是一个对其余节点都共享的secrete key，那么怎么防止拜占庭伪造他人发送消息呢？<br>如果说只需要序号值是连续的，那么这个secrete key好像没有什么用，单纯地直接用哈希值就行了。</p>
+</blockquote>
+<p>2.2.5 中提到了该系统的唯一缺点是：CASH里面使用的FPGA可能容易出错(bit flip)。<br>但一些太空或者原子核制作的东西里面也用到了FPGA，所以还是可以做成不容易出错的🙂</p>
+<h2 id="3-CheapBFT的思想"><a href="#3-CheapBFT的思想" class="headerlink" title="3 CheapBFT的思想"></a>3 CheapBFT的思想</h2><h3 id="正常的复制阶段-CheapTiny"><a href="#正常的复制阶段-CheapTiny" class="headerlink" title="正常的复制阶段(CheapTiny)"></a>正常的复制阶段(CheapTiny)</h3><p>2f+1个节点中，f+1个active节点执行完整的共识过程，并把执行结果返回用户。<br>剩下的f个passive节点能够通过UPDATE消息来获取那f+1个节点执行完之后的状态，并更新自己的状态。</p>
+<p>执行的示意图：<br><img src="/imgs/CheapBFT/Figure3.png" height="230" width="430"></p>
+<blockquote>
+<p>实际上还是需要2f+1个节点，而且消息总数还是增加了：<br>f(prepare)+f^2(commit)+f^2(update)=2f^2+f</p>
+</blockquote>
+<h3 id="出错阶段-CheapSwitch"><a href="#出错阶段-CheapSwitch" class="headerlink" title="出错阶段(CheapSwitch)"></a>出错阶段(CheapSwitch)</h3><p>当在正常阶段出现问题时，系统通过CheapSwithc协议转换到MinBFT。<br>这个协议的主要任务是让没有出错的节点同一个叫<code>abort history</code>的东西，它是由新leader发出的。</p>
+<h2 id="4-正常情况下的协议：CheapTiny"><a href="#4-正常情况下的协议：CheapTiny" class="headerlink" title="4 正常情况下的协议：CheapTiny"></a>4 正常情况下的协议：CheapTiny</h2><p>一条消息从client请求开始，到接收到回复的过程：<br><img src="/imgs/CheapBFT/Figure4.png" height="230" width="430"></p>
+<h3 id="4-1-client"><a href="#4-1-client" class="headerlink" title="4.1 client"></a>4.1 client</h3><p>客户端发送&lt;REQUEST, m&gt;消息给leader，m里面包括：client id、需要执行的指令、client请求的序列号(用于防止系统重复执行相同的请求)</p>
+<h3 id="4-2-Replica"><a href="#4-2-Replica" class="headerlink" title="4.2 Replica"></a>4.2 Replica</h3><p>节点的操作分成2个阶段：  </p>
+<ol>
+<li>agreement阶段：对客户的请求建立一个稳定的全序。</li>
+<li>execution阶段：</li>
+</ol>
+<ul>
+<li>处理用户请求</li>
+<li>为passive节点提供状态更新 (passive节点只执行之一步的操作)</li>
+</ul>
+<p>agreement阶段使用计数器名称为ag<br>execution阶段update时使用的计数器名称为up</p>
+<p>CheapTiny协议中对于active节点的操作：<br><img src="/imgs/CheapBFT/Figure5.png" height="400" width="460"></p>
+<p>执行阶段active节点的操作：<br><img src="/imgs/CheapBFT/Figure6.png" height="180" width="430"></p>
+<p>执行阶段passive节点的操作：<br><img src="/imgs/CheapBFT/Figure5.png" height="360" width="460"></p>
+<p>不写了，其实这篇并不是很难🙂</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/imgs/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/imgs/wechatpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">拜占庭</a>
         		</li>
@@ -213,30 +327,138 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Hexo系列//" class="article-tag-list-link color2">Hexo系列</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/18/论文阅读：CheapBFT-Resource-efficient-Byzantine-Fault-Tolerance/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/07/05/论文阅读：Efficient-Byzantine-Fault-Tolerance-2-MinBFT的安全性证明/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">论文阅读：Efficient Byzantine Fault-Tolerance(2.MinBFT的正确性证明)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
 
+ 
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'f6a69d9e1aa1c3fd694d',
+  	clientSecret: '165850e22ce20ad7e90f01984d3ae16c36f454a0',
+  	repo: 'joe-zxh.github.io',
+  	owner: 'joe-zxh',
+  	admin: ['joe-zxh'],
+  	id: 'Thu Jul 18 2019 16:15:35 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
+
     
+  
+  
+
+  
 
 
           </div>
@@ -259,8 +481,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
